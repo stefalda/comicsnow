@@ -1,0 +1,31 @@
+PODS:
+  - FlutterMacOS (1.0.0)
+  - rar (0.2.1):
+    - FlutterMacOS
+    - UnrarKit (~> 2.9)
+  - UnrarKit (2.10):
+    - UnrarKit/unrar-lib (= 2.10)
+  - UnrarKit/unrar-lib (2.10)
+
+DEPENDENCIES:
+  - FlutterMacOS (from `Flutter/ephemeral`)
+  - rar (from `Flutter/ephemeral/.symlinks/plugins/rar/macos`)
+
+SPEC REPOS:
+  trunk:
+    - UnrarKit
+
+EXTERNAL SOURCES:
+  FlutterMacOS:
+    :path: Flutter/ephemeral
+  rar:
+    :path: Flutter/ephemeral/.symlinks/plugins/rar/macos
+
+SPEC CHECKSUMS:
+  FlutterMacOS: c232990155153907050900a2e175c7773903ba4e
+  rar: 67b9043a062c23479ed4e0ce3e3f14701a9c4dd7
+  UnrarKit: 62f535c7a34ec52d2514b9b148f33dcfa9a9dc39
+
+PODFILE CHECKSUM: d16f5e5d196d1ca9863d7a71d5885cad7ffa7d2d
+
+COCOAPODS: 1.16.2

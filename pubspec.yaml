@@ -1,0 +1,91 @@
+name: comicsnow
+description: "Local AI comic reader with panel-by-panel reading."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.13.4
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+  # ML - desktop inference (ONNX Runtime).
+  #
+  # Vendored from pub.dev 1.8.5 with one change: the iOS Swift Package manifest
+  # was removed, so iOS integrates through CocoaPods (podspec, iOS 16.0) instead
+  # of SwiftPM. Flutter's generated plugin package declares iOS 15.0 and never
+  # gets bumped, so Xcode rejects the 16.0 SPM product ("Target Integrity").
+  # macOS keeps the Swift Package and works. See third_party/flutter_onnxruntime.
+  flutter_onnxruntime:
+    path: third_party/flutter_onnxruntime
+
+  # Persistence - detection cache
+  drift: ^2.35.0
+  drift_flutter: ^0.3.1
+
+  # Comic archives (CBZ)
+  archive: ^4.3.0
+
+  # Comic archives (CBR / RAR)
+  rar: ^0.3.0
+
+  # Image dimension decoding
+  image: ^4.10.1
+
+  # File picking.
+  #
+  # file_selector reads the whole picked file into memory to return its bytes
+  # (FileResponse.bytes), which OOMs on a large CBZ. file_picker copies the file
+  # to the app cache with streams and returns only the path.
+  file_picker: ^13.1.0
+
+  # Preferences
+  shared_preferences: ^2.5.5
+
+  # Paths
+  path: ^1.9.1
+  path_provider: ^2.1.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  integration_test:
+    sdk: flutter
+
+  flutter_lints: ^6.0.0
+
+  drift_dev: ^2.35.0
+  build_runner: ^2.7.1
+  flutter_launcher_icons: ^0.14.4
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/models/
+
+# App icons. Regenerate the square source with:
+#   dart run tool/generate_icon.dart
+# then apply it to every platform with:
+#   dart run flutter_launcher_icons
+flutter_launcher_icons:
+  image_path: "assets/icon/icon_source.png"
+  android: true
+  ios: true
+  remove_alpha_ios: true
+  macos:
+    generate: true
+    image_path: "assets/icon/icon_source.png"
+  windows:
+    generate: true
+    image_path: "assets/icon/icon_source.png"
+    icon_size: 256
+  web:
+    generate: true
+    image_path: "assets/icon/icon_source.png"
+    background_color: "#0b3d91"
+    theme_color: "#0b3d91"
